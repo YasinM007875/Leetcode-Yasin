@@ -1,0 +1,25 @@
+// Last updated: 9/11/2026, 9:28:07 AM
+class Solution {
+    public int[][] modifiedMatrix(int[][] matrix) {
+
+        int m = matrix.length;
+        int n = matrix[0].length;
+
+        for (int col = 0; col < n; col++) {
+
+            int max = 0;
+
+            for (int row = 0; row < m; row++) {
+                max = Math.max(max, matrix[row][col]);
+            }
+
+            for (int row = 0; row < m; row++) {
+                if (matrix[row][col] == -1) {
+                    matrix[row][col] = max;
+                }
+            }
+        }
+
+        return matrix;
+    }
+}
